@@ -34,10 +34,11 @@ try:
         if res[2] == None:
             break
 
-        if urlNumber > 100:
+        if urlNumber > 10:
             break
 
         reviews = res[2]
+        worksheet.write('E'+str(cellIndex), len(reviews))
 
         for review in reviews:
             # print('date:')
@@ -56,8 +57,8 @@ try:
             cellIndex = cellIndex+1
 
         urlNumber = urlNumber + 1
-        time.sleep(5)
-except e:
+        time.sleep(0)
+except:
     print('An error has occured (google might have blocked your IP, you may have virus 😂)')
     print('Last urlNumber', urlNumber)
 
